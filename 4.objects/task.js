@@ -13,6 +13,9 @@ Student.prototype.addMarks = function (...marks) {
   if (!this.marks) {
         console.log("Student is excluded");
         return;
+    }
+    if (marks[0] != 0 /*&& this.hasOwnProperty('excluded') == false*/) {
+        this.marks.push(...marks);
     } 
 }
 
