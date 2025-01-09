@@ -10,19 +10,21 @@ Student.prototype.setSubject = function (subjectName) {
 }
 
 Student.prototype.addMarks = function (...marks) {
-  if (!this.marks) {
-        console.log("Student is excluded");
-        return;
-    } 
+  if (this.hasOwnProperty(`marks`) === true) {
+    this.marks.push(...marks);
+  }
 }
 
 Student.prototype.getAverage = function () {
-  //return this.marks.reduce((acc, mark, index, arr) => acc + mark / arr.length, 0);
-  if (!this.marks) {
-       return 0;
-   } else {
-       return this.marks.reduce((acc, mark, index, arr) => acc + mark / arr.length, 0); 
-   }
+  if (this.hasOwnProperty(`marks`) === false || this.marks.length === 0) {
+    return 0;
+  }
+    if (index === arr.length - 1) {
+        return acc / arr.length;
+    }
+    return acc;
+    }, 0);
+    return gradePointAverage;
 }
 
 Student.prototype.exclude = function (reason) {
